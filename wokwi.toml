@@ -1,0 +1,6 @@
+# Для ЛР 5.2 в эмуляторе используется сборка с тепловой моделью (pio run -e uno_sim):
+# температура DHT22 в Wokwi не зависит от нагревателя, а PID нужна обратная связь.
+[wokwi]
+version = 1
+firmware = '.pio/build/uno_sim/firmware.hex'
+elf = '.pio/build/uno_sim/firmware.elf'

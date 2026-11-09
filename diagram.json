@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "author": "TI-237",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -150,
+      "left": 260,
+      "attrs": {
+        "temperature": "25",
+        "humidity": "50"
+      }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -260,
+      "left": -330,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz",
+      "top": -130,
+      "left": 520,
+      "attrs": {
+        "volume": "0.1"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledAlarm",
+      "top": -130,
+      "left": 610,
+      "attrs": {
+        "color": "red",
+        "label": "ALARM"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rAlarm",
+      "top": -60,
+      "left": 590,
+      "attrs": {
+        "value": "220"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledStatus",
+      "top": -130,
+      "left": 680,
+      "attrs": {
+        "color": "green",
+        "label": "HEAT"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rStatus",
+      "top": -60,
+      "left": 660,
+      "attrs": {
+        "value": "220"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnUp",
+      "top": -170,
+      "left": 40,
+      "attrs": {
+        "color": "green",
+        "label": "UP"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnDown",
+      "top": -170,
+      "left": 130,
+      "attrs": {
+        "color": "red",
+        "label": "DOWN"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnMode",
+      "top": -170,
+      "left": 220,
+      "attrs": {
+        "color": "blue",
+        "label": "MODE"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rHeater",
+      "top": 250,
+      "left": 470,
+      "attrs": {
+        "value": "220"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledHeater",
+      "top": 300,
+      "left": 530,
+      "attrs": {
+        "color": "orange",
+        "label": "HEATER PWM"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "uno:1",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "uno:0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "dht:VCC",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "dht:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "dht:SDA",
+      "uno:2",
+      "green",
+      []
+    ],
+    [
+      "lcd:VCC",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "lcd:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "lcd:SDA",
+      "uno:A4",
+      "blue",
+      []
+    ],
+    [
+      "lcd:SCL",
+      "uno:A5",
+      "purple",
+      []
+    ],
+    [
+      "uno:8",
+      "bz:2",
+      "purple",
+      []
+    ],
+    [
+      "bz:1",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:10",
+      "rAlarm:2",
+      "red",
+      []
+    ],
+    [
+      "rAlarm:1",
+      "ledAlarm:A",
+      "red",
+      []
+    ],
+    [
+      "ledAlarm:C",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:13",
+      "rStatus:2",
+      "green",
+      []
+    ],
+    [
+      "rStatus:1",
+      "ledStatus:A",
+      "green",
+      []
+    ],
+    [
+      "ledStatus:C",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:4",
+      "btnUp:1.l",
+      "orange",
+      []
+    ],
+    [
+      "btnUp:2.r",
+      "uno:GND.2",
+      "black",
+      []
+    ],
+    [
+      "uno:5",
+      "btnDown:1.l",
+      "orange",
+      []
+    ],
+    [
+      "btnDown:2.r",
+      "uno:GND.2",
+      "black",
+      []
+    ],
+    [
+      "uno:6",
+      "btnMode:1.l",
+      "orange",
+      []
+    ],
+    [
+      "btnMode:2.r",
+      "uno:GND.2",
+      "black",
+      []
+    ],
+    [
+      "uno:9",
+      "rHeater:2",
+      "orange",
+      []
+    ],
+    [
+      "rHeater:1",
+      "ledHeater:A",
+      "orange",
+      []
+    ],
+    [
+      "ledHeater:C",
+      "uno:GND.2",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
